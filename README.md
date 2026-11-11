@@ -28,7 +28,7 @@ Then add **Desktop Menu** to the panel that holds the Global Menu, right after i
 For development, symlink the repo instead so edits are picked up after `plasmashell --replace`:
 
 ```sh
-ln -s "$PWD" ~/.local/share/plasma/plasmoids/local.desktopmenu
+ln -s "$PWD" ~/.local/share/plasma/plasmoids/io.github.sidneicjr28.desktopmenu
 ```
 
 ## Customizing

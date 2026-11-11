@@ -1,6 +1,6 @@
 {
     "KPlugin": {
-        "Id": "local.desktopmenu",
+        "Id": "io.github.sidneicjr28.desktopmenu",
         "Name": "Desktop Menu",
         "Description": "Finder-like menu shown when no window is focused",
         "Icon": "user-desktop",
