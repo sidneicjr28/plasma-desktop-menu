@@ -1,5 +1,9 @@
 # Desktop Menu
 
+[![Latest release](https://img.shields.io/github/v/release/sidneicjr28/plasma-desktop-menu)](https://github.com/sidneicjr28/plasma-desktop-menu/releases/latest)
+[![License: GPL-2.0-or-later](https://img.shields.io/github/license/sidneicjr28/plasma-desktop-menu)](LICENSE)
+![Plasma 6](https://img.shields.io/badge/KDE%20Plasma-6-1d99f3?logo=kde)
+
 A Plasma 6 panel widget that brings a macOS Finder-style menu to the desktop. Place it next to the Global Menu: it appears only when no application window is focused, and hides as soon as an app takes focus.
 
 ![Desktop Menu open on the desktop](screenshots/menu.png)
@@ -20,13 +24,32 @@ Plasma 6. The default menu entries use Dolphin, Konsole, KWrite, Spectacle and P
 
 ## Install
 
+### From the Plasma widget browser
+
+Right-click the panel → **Add Widgets…** → **Get New Widgets** → **Download New Plasma Widgets**, then search for **Desktop Menu**.
+
+### From a GitHub release
+
+Download the `.plasmoid` file from the [latest release](https://github.com/sidneicjr28/plasma-desktop-menu/releases/latest) and run:
+
 ```sh
-kpackagetool6 -t Plasma/Applet -i .
+kpackagetool6 -t Plasma/Applet -i desktop-menu-*.plasmoid
 ```
 
-Then add **Desktop Menu** to the panel that holds the Global Menu, right after it.
+To update later, use `-u` instead of `-i`.
 
-For development, symlink the repo instead so edits are picked up after `plasmashell --replace`:
+### From source
+
+```sh
+git clone https://github.com/sidneicjr28/plasma-desktop-menu.git
+kpackagetool6 -t Plasma/Applet -i plasma-desktop-menu
+```
+
+After installing, add **Desktop Menu** to the panel that holds the Global Menu, right after it.
+
+### Development
+
+Symlink the repo so edits are picked up after `plasmashell --replace`:
 
 ```sh
 ln -s "$PWD" ~/.local/share/plasma/plasmoids/io.github.sidneicjr28.desktopmenu
