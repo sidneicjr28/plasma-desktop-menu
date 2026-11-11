@@ -1,5 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Window
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PC3
@@ -35,7 +38,9 @@ PlasmoidItem {
             ["Overview", "view-grid", "qdbus6 org.kde.kglobalaccel /component/kwin invokeShortcut Overview"],
             ["Show Desktop", "user-desktop", "qdbus6 org.kde.kglobalaccel /component/kwin invokeShortcut 'Show Desktop'"],
             null,
-            ["Take Screenshot", "spectacle", "spectacle"]]],
+            ["Take Screenshot", "spectacle", "spectacle"],
+            null,
+            ["About Desktop Menu", "help-about", "@about"]]],
         ["Go", [
             ["Home", "user-home", "dolphin ~"],
             ["Desktop", "user-desktop", "dolphin ~/Desktop"],
@@ -96,7 +101,73 @@ PlasmoidItem {
         id: menuItem
         PlasmaExtras.MenuItem {
             property string cmd
-            onClicked: root.run(cmd)
+            onClicked: cmd === "@about" ? aboutWindow.showNormal() : root.run(cmd)
+        }
+    }
+
+    readonly property string githubUser: "sidneicjr28"
+
+    Window {
+        id: aboutWindow
+        title: "About Desktop Menu"
+        flags: Qt.Dialog
+        readonly property int fixedHeight: aboutLayout.implicitHeight + 2 * Kirigami.Units.gridUnit
+        width: 360
+        height: fixedHeight
+        minimumWidth: 360; maximumWidth: 360
+        minimumHeight: fixedHeight; maximumHeight: fixedHeight
+        color: Kirigami.Theme.backgroundColor
+
+        ColumnLayout {
+            id: aboutLayout
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.margins: Kirigami.Units.gridUnit
+            spacing: Kirigami.Units.smallSpacing
+
+            Kirigami.Icon {
+                source: Plasmoid.metaData.iconName
+                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                Layout.preferredHeight: Kirigami.Units.iconSizes.huge
+                Layout.alignment: Qt.AlignHCenter
+            }
+            Kirigami.Heading {
+                text: Plasmoid.metaData.name
+                Layout.alignment: Qt.AlignHCenter
+            }
+            QQC2.Label {
+                text: "Version " + Plasmoid.metaData.version
+                opacity: 0.7
+                Layout.alignment: Qt.AlignHCenter
+            }
+            QQC2.Label {
+                text: Plasmoid.metaData.description
+                wrapMode: Text.WordWrap
+                horizontalAlignment: Text.AlignHCenter
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+            }
+            QQC2.Label {
+                text: "Made by <a href=\"https://github.com/%1\">@%1</a>".arg(root.githubUser)
+                textFormat: Text.StyledText
+                onLinkActivated: (link) => Qt.openUrlExternally(link)
+                HoverHandler { cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor }
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: Kirigami.Units.smallSpacing
+            }
+            QQC2.Label {
+                text: "License: " + Plasmoid.metaData.license
+                opacity: 0.7
+                Layout.alignment: Qt.AlignHCenter
+            }
+            QQC2.Button {
+                text: "Close"
+                icon.name: "dialog-close"
+                onClicked: aboutWindow.close()
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: Kirigami.Units.smallSpacing
+            }
         }
     }
 }
