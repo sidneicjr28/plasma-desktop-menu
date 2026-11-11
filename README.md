@@ -66,6 +66,8 @@ Right-click the widget → **Configure Desktop Menu…** → **Appearance** to a
 - Menu font, size and color
 - The "Desktop" label: show/hide, custom text, bold, italic, size and color
 
+![Appearance settings page](screenshots/settings.png)
+
 To change the menu entries, edit the `menus` list in `contents/ui/main.qml`. Each entry is `[label, icon, shell command]`; `null` inserts a separator.
 
 ## License
