@@ -8,10 +8,11 @@ A Plasma 6 panel widget that brings a macOS Finder-style menu to the desktop. Pl
 
 ## Menus
 
-- **File** — new Dolphin window, new terminal (Konsole), new text file (KWrite), search (KRunner)
+- **File** — new Dolphin window, new terminal (Konsole), new text file (KWrite)
 - **View** — Overview, Show Desktop, take a screenshot (Spectacle), About
 - **Go** — Home, Desktop, Documents, Downloads, Pictures, Computer, Trash
 - **System** — System Settings, System Monitor, Lock, Log Out, Restart, Shut Down
+- **Search** button (right side) — opens KRunner
 
 ## Requirements
 

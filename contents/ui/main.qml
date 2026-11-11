@@ -31,9 +31,7 @@ PlasmoidItem {
         ["File", [
             ["New File Manager Window", "system-file-manager", "dolphin"],
             ["New Terminal", "utilities-terminal", "konsole"],
-            ["New Text File", "kwrite", "kwrite"],
-            null,
-            ["Search…", "search", "qdbus6 org.kde.krunner /App display"]]],
+            ["New Text File", "kwrite", "kwrite"]]],
         ["View", [
             ["Overview", "view-grid", "qdbus6 org.kde.kglobalaccel /component/kwin invokeShortcut Overview"],
             ["Show Desktop", "user-desktop", "qdbus6 org.kde.kglobalaccel /component/kwin invokeShortcut 'Show Desktop'"],
@@ -94,6 +92,11 @@ PlasmoidItem {
                     }
                 }
             }
+        }
+
+        PC3.ToolButton {
+            text: "Search"
+            onClicked: root.run("qdbus6 org.kde.krunner /App display")
         }
     }
 
