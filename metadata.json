@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "local.desktopmenu",
+        "Name": "Desktop Menu",
+        "Description": "Finder-like menu shown when no window is focused",
+        "Icon": "user-desktop",
+        "Category": "Windows and Tasks"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
