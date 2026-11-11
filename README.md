@@ -60,7 +60,13 @@ ln -s "$PWD" ~/.local/share/plasma/plasmoids/io.github.sidneicjr28.desktopmenu
 
 ## Customizing
 
-Edit the `menus` list in `contents/ui/main.qml`. Each entry is `[label, icon, shell command]`; `null` inserts a separator.
+Right-click the widget → **Configure Desktop Menu…** → **Appearance** to adjust:
+
+- Gap between menu items
+- Menu font, size and color
+- The "Desktop" label: show/hide, custom text, bold, italic, size and color
+
+To change the menu entries, edit the `menus` list in `contents/ui/main.qml`. Each entry is `[label, icon, shell command]`; `null` inserts a separator.
 
 ## License
 
