@@ -60,7 +60,7 @@ KCM.SimpleKCM {
             id: itemSpacing
             Kirigami.FormData.label: "Gap between items:"
         }
-        // Items are centered in what's left, so unequal margins shift them vertically
+        // Top pushes the items down, bottom pushes them up
         PixelSpinBox {
             id: topMargin
             Kirigami.FormData.label: "Top margin:"
