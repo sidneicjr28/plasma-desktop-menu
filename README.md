@@ -2,10 +2,14 @@
 
 A Plasma 6 panel widget that brings a macOS Finder-style menu to the desktop. Place it next to the Global Menu: it appears only when no application window is focused, and hides as soon as an app takes focus.
 
+![Desktop Menu open on the desktop](screenshots/menu.png)
+
+![Full desktop with Desktop Menu in the top panel](screenshots/desktop.png)
+
 ## Menus
 
 - **File** — new Dolphin window, new terminal (Konsole), new text file (KWrite), search (KRunner)
-- **View** — Overview, Show Desktop, take a screenshot (Spectacle)
+- **View** — Overview, Show Desktop, take a screenshot (Spectacle), About
 - **Go** — Home, Desktop, Documents, Downloads, Pictures, Computer, Trash
 - **System** — System Settings, System Monitor, Lock, Log Out, Restart, Shut Down
 
