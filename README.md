@@ -2,6 +2,7 @@
 
 [![Latest release](https://img.shields.io/github/v/release/sidneicjr28/plasma-desktop-menu)](https://github.com/sidneicjr28/plasma-desktop-menu/releases/latest)
 [![License: GPL-2.0-or-later](https://img.shields.io/github/license/sidneicjr28/plasma-desktop-menu)](LICENSE)
+[![KDE Store](https://img.shields.io/badge/KDE%20Store-Desktop%20Menu-1d99f3?logo=kde)](https://www.opendesktop.org/p/2381608/)
 ![Plasma 6](https://img.shields.io/badge/KDE%20Plasma-6-1d99f3?logo=kde)
 
 A Plasma 6 panel widget that brings a macOS Finder-style menu to the desktop. Place it next to the Global Menu: it appears only when no application window is focused, and hides as soon as an app takes focus.
@@ -27,6 +28,8 @@ Plasma 6. The default menu entries use Dolphin, Konsole, KWrite, Spectacle and P
 ### From the Plasma widget browser
 
 Right-click the panel → **Add Widgets…** → **Get New Widgets** → **Download New Plasma Widgets**, then search for **Desktop Menu**.
+
+Or get it from the [KDE Store page](https://www.opendesktop.org/p/2381608/).
 
 ### From a GitHub release
 
