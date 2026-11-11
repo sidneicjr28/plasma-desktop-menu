@@ -5,7 +5,7 @@
         "Description": "Finder-like menu shown when no window is focused",
         "Icon": "user-desktop",
         "Category": "Windows and Tasks",
-        "Version": "1.0.0",
+        "Version": "1.1.0",
         "License": "GPL-2.0-or-later",
         "Authors": [
             {
