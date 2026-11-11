@@ -62,7 +62,7 @@ ln -s "$PWD" ~/.local/share/plasma/plasmoids/io.github.sidneicjr28.desktopmenu
 
 Right-click the widget → **Configure Desktop Menu…** → **Appearance** to adjust:
 
-- Gap between menu items
+- Gap between menu items, and top/bottom margins to adjust vertical alignment
 - Menu font, size and color
 - The "Desktop" label: show/hide, custom text, bold, italic, size and color
 
