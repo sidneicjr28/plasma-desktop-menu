@@ -7,6 +7,8 @@ import org.kde.kquickcontrols as KQuickControls
 
 KCM.SimpleKCM {
     property alias cfg_itemSpacing: itemSpacing.value
+    property alias cfg_topMargin: topMargin.value
+    property alias cfg_bottomMargin: bottomMargin.value
     property string cfg_fontFamily
     property alias cfg_fontSize: fontSize.value
     property alias cfg_useCustomTextColor: useCustomTextColor.checked
@@ -26,8 +28,16 @@ KCM.SimpleKCM {
         valueFromText: (t) => t === "Default" ? 0 : parseInt(t) || 0
     }
 
+    component PixelSpinBox: QQC2.SpinBox {
+        from: 0; to: 64
+        textFromValue: (v) => v + " px"
+        valueFromText: (t) => parseInt(t) || 0
+    }
+
     function resetDefaults() {
         cfg_itemSpacing = 8
+        cfg_topMargin = 0
+        cfg_bottomMargin = 0
         cfg_fontFamily = ""
         cfg_fontSize = 0
         cfg_useCustomTextColor = false
@@ -46,12 +56,18 @@ KCM.SimpleKCM {
     }
 
     Kirigami.FormLayout {
-        QQC2.SpinBox {
+        PixelSpinBox {
             id: itemSpacing
             Kirigami.FormData.label: "Gap between items:"
-            from: 0; to: 64
-            textFromValue: (v) => v + " px"
-            valueFromText: (t) => parseInt(t) || 0
+        }
+        // Items are centered in what's left, so unequal margins shift them vertically
+        PixelSpinBox {
+            id: topMargin
+            Kirigami.FormData.label: "Top margin:"
+        }
+        PixelSpinBox {
+            id: bottomMargin
+            Kirigami.FormData.label: "Bottom margin:"
         }
 
         Item { Kirigami.FormData.isSection: true; Kirigami.FormData.label: "Menu Font" }

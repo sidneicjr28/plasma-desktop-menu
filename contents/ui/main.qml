@@ -83,6 +83,8 @@ PlasmoidItem {
             font.italic: root.cfg.labelItalic
             Layout.leftMargin: 6
             Layout.rightMargin: 6
+            Layout.topMargin: root.cfg.topMargin
+            Layout.bottomMargin: root.cfg.bottomMargin
         }
 
         Repeater {
@@ -91,6 +93,8 @@ PlasmoidItem {
                 id: btn
                 text: modelData[0]
                 contentItem: MenuButtonLabel { text: btn.text }
+                Layout.topMargin: root.cfg.topMargin
+                Layout.bottomMargin: root.cfg.bottomMargin
                 down: menu.status === PlasmaExtras.Menu.Open
                 onPressed: menu.openRelative()
 
@@ -112,6 +116,8 @@ PlasmoidItem {
             text: "Search"
             id: searchBtn
             contentItem: MenuButtonLabel { text: searchBtn.text }
+            Layout.topMargin: root.cfg.topMargin
+            Layout.bottomMargin: root.cfg.bottomMargin
             onClicked: root.run("qdbus6 org.kde.krunner /App display")
         }
     }
