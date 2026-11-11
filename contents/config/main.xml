@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="General">
+        <entry name="itemSpacing" type="Int"><default>8</default></entry>
+        <entry name="fontFamily" type="String"><default></default></entry>
+        <entry name="fontSize" type="Int"><default>0</default></entry>
+        <entry name="useCustomTextColor" type="Bool"><default>false</default></entry>
+        <entry name="textColor" type="Color"><default>#ffffff</default></entry>
+        <entry name="showLabel" type="Bool"><default>true</default></entry>
+        <entry name="labelText" type="String"><default>Desktop</default></entry>
+        <entry name="labelBold" type="Bool"><default>true</default></entry>
+        <entry name="labelItalic" type="Bool"><default>false</default></entry>
+        <entry name="labelFontSize" type="Int"><default>0</default></entry>
+        <entry name="useCustomLabelColor" type="Bool"><default>false</default></entry>
+        <entry name="labelColor" type="Color"><default>#ffffff</default></entry>
+    </group>
+</kcfg>

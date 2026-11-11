@@ -14,6 +14,14 @@ PlasmoidItem {
     id: root
     readonly property bool desktopFocused: !tasksModel.activeTask.valid
 
+    readonly property var cfg: Plasmoid.configuration
+    readonly property font baseFont: Kirigami.Theme.defaultFont
+    readonly property font menuFont: Qt.font({
+        family: cfg.fontFamily || baseFont.family,
+        pointSize: cfg.fontSize > 0 ? cfg.fontSize : baseFont.pointSize
+    })
+    readonly property color menuTextColor: cfg.useCustomTextColor ? cfg.textColor : Kirigami.Theme.textColor
+
     preferredRepresentation: fullRepresentation
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
 
@@ -59,15 +67,20 @@ PlasmoidItem {
     ]
 
     fullRepresentation: RowLayout {
-        spacing: 8
+        spacing: root.cfg.itemSpacing
         visible: root.desktopFocused
         Layout.preferredWidth: root.desktopFocused ? implicitWidth : 0
         Layout.minimumWidth: Layout.preferredWidth
         Layout.maximumWidth: Layout.preferredWidth
 
         PC3.Label {
-            text: "Desktop"
-            font.bold: true
+            visible: root.cfg.showLabel
+            text: root.cfg.labelText || "Desktop"
+            color: root.cfg.useCustomLabelColor ? root.cfg.labelColor : root.menuTextColor
+            font.family: root.menuFont.family
+            font.pointSize: root.cfg.labelFontSize > 0 ? root.cfg.labelFontSize : root.menuFont.pointSize
+            font.bold: root.cfg.labelBold
+            font.italic: root.cfg.labelItalic
             Layout.leftMargin: 6
             Layout.rightMargin: 6
         }
@@ -77,6 +90,7 @@ PlasmoidItem {
             PC3.ToolButton {
                 id: btn
                 text: modelData[0]
+                contentItem: MenuButtonLabel { text: btn.text }
                 down: menu.status === PlasmaExtras.Menu.Open
                 onPressed: menu.openRelative()
 
@@ -96,8 +110,18 @@ PlasmoidItem {
 
         PC3.ToolButton {
             text: "Search"
+            id: searchBtn
+            contentItem: MenuButtonLabel { text: searchBtn.text }
             onClicked: root.run("qdbus6 org.kde.krunner /App display")
         }
+    }
+
+    // PC3.ToolButton ignores overridden Kirigami.Theme colors, so draw the text ourselves
+    component MenuButtonLabel: PC3.Label {
+        font: root.menuFont
+        color: root.menuTextColor
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
     }
 
     Component {
