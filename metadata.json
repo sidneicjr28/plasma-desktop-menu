@@ -4,7 +4,15 @@
         "Name": "Desktop Menu",
         "Description": "Finder-like menu shown when no window is focused",
         "Icon": "user-desktop",
-        "Category": "Windows and Tasks"
+        "Category": "Windows and Tasks",
+        "Version": "1.0.0",
+        "License": "GPL-2.0-or-later",
+        "Authors": [
+            {
+                "Name": "sidneicjr28"
+            }
+        ],
+        "Website": "https://github.com/sidneicjr28"
     },
     "KPackageStructure": "Plasma/Applet",
     "X-Plasma-API-Minimum-Version": "6.0"
